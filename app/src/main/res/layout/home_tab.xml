@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="My Results Tab"
+        android:text="Home Fragment"
         android:textSize="50dp"/>
 
 </LinearLayout>

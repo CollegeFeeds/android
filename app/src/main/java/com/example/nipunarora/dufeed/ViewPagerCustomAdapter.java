@@ -18,13 +18,10 @@ public class ViewPagerCustomAdapter extends FragmentStatePagerAdapter {
         switch (index) {
             case 0:
                 // Top Rated fragment activity
-                return new MyResultsTab();
+                return new HomeTab();
             case 1:
-                // Games fragment activity
-                return new MyNoticesTab();
-            case 2:
                 // Movies fragment activity
-                return new StarredNotice();
+                return new Starred();
         }
 
         return null;
@@ -33,7 +30,7 @@ public class ViewPagerCustomAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         // get item count - equal to number of tabs
-        return 3;
+        return 2;
     }
     @Override
     public CharSequence getPageTitle(int position) {
@@ -41,11 +38,9 @@ public class ViewPagerCustomAdapter extends FragmentStatePagerAdapter {
 
         switch (position){
             case 0:
-                return "My Result";
+                return "Home";
             case 1:
-                return "My Notices";
-            case 2:
-                return "Starred Notices";
+                return "Starred";
 
             default:
                 return null;

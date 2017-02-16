@@ -15,19 +15,25 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.Iterator;
+import java.util.List;
 
 
 public class LauncherActivity extends AppCompatActivity {
     Handler mHandler;
     Runnable mRunnable;
     RequestQueue requestqueue;
+    NewsDatabaseHandler dbnewshandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
         requestqueue=VolleySingleton.getInstance(getApplicationContext()).getRequestQueue();
+        dbnewshandler=new NewsDatabaseHandler(this);
 
         /*************************** SETTING UP THE NEWS HEADLINE BANNERS *******************************/
         /***** SET UP THE SHARED PREFERENCES(The Approach here is to create a shared preference
@@ -39,12 +45,6 @@ public class LauncherActivity extends AppCompatActivity {
             {
                 getDuNews();
             }
-
-
-
-
-
-
         /*mHandler=new Handler();
         mRunnable=new Runnable() {
             @Override
@@ -72,7 +72,22 @@ public class LauncherActivity extends AppCompatActivity {
                         // response
                         Log.d("Response", response);
                         /***************** JSON PARSING OF THE RESPONSE*********************/
+                        try{
+                            JSONObject res=new JSONObject(response);
+                            int Json_length=res.length();
+                            JSONArray key_array=res.names();
+                            for (int i=0;i<Json_length;++i)
+                            {
+                                JSONObject temp=key_array.getJSONObject(i);
+                                dbnewshandler.addBanner(new NewsBanner(temp.getString("title"),temp.getString("linkf"),temp.getString("imagelink")));
+                            }
 
+                        }
+                        catch (Exception e)
+                        {
+                            Log.d("JSON Parse Error",e.toString());
+                        }
+                        /***************** END OF JSON PARSING *******************************/
 
                         /************************* Inverting the doweneedbnewsdowload Boolean *******************/
                         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("Preferences",getApplicationContext().MODE_PRIVATE);
@@ -80,6 +95,7 @@ public class LauncherActivity extends AppCompatActivity {
                         editor.putBoolean("headline_dbload",true );
                         editor.commit();
                         /******************************************** Invert Complete ************************/
+
                     }
                 },
                 new Response.ErrorListener()

@@ -8,21 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by nipunarora on 27/01/17.
+ * Created by nipunarora on 16/02/17.
  */
-public class MyNoticesTab extends Fragment {
-    View rootview;
-    public MyNoticesTab()
-    {
-    }
+public class NewsBannerFragment extends Fragment {
+    public NewsBannerFragment()
+    {}
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-            rootview=inflater.inflate(
-                    R.layout.mynotice_tab, container, false);
-            return  rootview;
-
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 }

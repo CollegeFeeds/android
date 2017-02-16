@@ -9,12 +9,13 @@ import java.io.Serializable;
  */
 /**************************************** A DataModel class for a particular News Banner *************************/
 public class NewsBanner implements Serializable {
-   public String image_url,news_url;
+   public String image_url,news_url,title;
 
-    public NewsBanner(String imgurl,String newsurl)
+    public NewsBanner(String title1,String newsurl,String imgurl)
     {
         image_url=imgurl;
         news_url=newsurl;
+        title=title1;
     }
 
 }

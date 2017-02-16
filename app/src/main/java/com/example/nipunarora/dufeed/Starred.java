@@ -17,7 +17,7 @@ public class Starred extends Fragment {
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootview=inflater.inflate(
-                R.layout.starrednotices_tab, container, false);
+                R.layout.starred, container, false);
         return  rootview;
     }
 }

@@ -35,17 +35,17 @@ public class LauncherActivity extends AppCompatActivity {
 
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("Preferences",getApplicationContext().MODE_PRIVATE);
         Boolean doWeNeedDBNewsDownload = sharedPref.getBoolean("headline_dbload",false);
-       if(doWeNeedDBNewsDownload)
-       {
-           getDuNews();
-       }
+        if(!doWeNeedDBNewsDownload)
+            {
+                getDuNews();
+            }
 
 
 
 
 
 
-        mHandler=new Handler();
+        /*mHandler=new Handler();
         mRunnable=new Runnable() {
             @Override
             public void run() {
@@ -55,7 +55,7 @@ public class LauncherActivity extends AppCompatActivity {
                 finish();
             }
         };
-        mHandler.postDelayed(mRunnable,3000);
+        mHandler.postDelayed(mRunnable,3000);*/
     }
     private void getDuNews()
     {
@@ -64,13 +64,15 @@ public class LauncherActivity extends AppCompatActivity {
 
         /*************************************** Request For News From Server ****************************************************/
 
-        StringRequest getNews = new StringRequest(Request.Method.GET, "http://192.168.1.10/json.php?id=0",
+        StringRequest getNews = new StringRequest(Request.Method.GET, "http://139.59.40.238:88/api/duNews/1",
                 new Response.Listener<String>()
                 {
                     @Override
                     public void onResponse(String response) {
                         // response
                         Log.d("Response", response);
+                        /***************** JSON PARSING OF THE RESPONSE*********************/
+
 
                         /************************* Inverting the doweneedbnewsdowload Boolean *******************/
                         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("Preferences",getApplicationContext().MODE_PRIVATE);

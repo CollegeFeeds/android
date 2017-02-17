@@ -2,6 +2,7 @@ package com.example.nipunarora.dufeed;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,8 +18,11 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import DataModels.NewsBanner;
 import DatabaseHandlers.NewsDatabaseHandler;
+import Fragments.NewsBannerFragment;
 
 
 public class LauncherActivity extends AppCompatActivity {
@@ -120,7 +124,22 @@ public class LauncherActivity extends AppCompatActivity {
     {
         Intent i=new Intent(this,HomeActivity.class);
         /***************** GET ALL THE BANNERS FROM DB ****************/
-        i.putExtra("NewsBannerList",dbnewshandler.getBannerList());
+
+        ArrayList<NewsBanner> bannerlist=dbnewshandler.getBannerList();
+
+        /***************** CREATE A LIST OF FRAGMENTS THAT WILL BE PASSED WITH THE INTENT
+         * SO THAT THE VIEW PAGER CAN DIRECTLY CONSUME THE LIST OF FRAGMENTS********************/
+
+        int sizeofBannerList=bannerlist.size();
+        ArrayList<Fragment> bannerfragmentlist=new ArrayList<Fragment>();
+        for(int j=0;j<sizeofBannerList;++j)
+        {
+            NewsBannerFragment nbfragment=new NewsBannerFragment();
+            bannerfragmentlist.add(nbfragment);
+
+        }
+
+        i.putExtra("NewsBannerList",bannerfragmentlist);
         startActivity(i);
     }
 }

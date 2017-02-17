@@ -2,11 +2,13 @@ package com.example.nipunarora.dufeed;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -40,9 +42,6 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setCheckedItem(R.id.nav_camera1);
         hm=new HomeFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, hm).commit();
-        ArrayList<NewsBanner> temp= (ArrayList<NewsBanner>) getIntent().getSerializableExtra("NewsBannerList");
-        Toast.makeText(this,temp.get(0).title,Toast.LENGTH_SHORT).show();
-
 
     }
 

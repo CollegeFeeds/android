@@ -66,7 +66,7 @@ public class NewsDatabaseHandler extends SQLiteOpenHelper {
         if(cursor!=null)
         {
             cursor.moveToFirst();
-            return new NewsBanner(cursor.getString(0),cursor.getString(1),cursor.getString(2));
+            return new NewsBanner(cursor.getString(0),cursor.getString(2),cursor.getString(1));
         }
         else
         {
@@ -89,7 +89,7 @@ public class NewsDatabaseHandler extends SQLiteOpenHelper {
             int row_count = cursor.getCount();
             for(int i=0;i<row_count;++i)
             {
-                QuerySet.add(new NewsBanner(cursor.getString(0),cursor.getString(1),cursor.getString(2)));
+                QuerySet.add(new NewsBanner(cursor.getString(0),cursor.getString(2),cursor.getString(1)));
                 cursor.moveToNext();
                 //The above method invocation may reach null at the end of a particular iteration
             }

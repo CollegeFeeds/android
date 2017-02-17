@@ -7,7 +7,7 @@
         android:id="@+id/card_view"
         card_view:cardCornerRadius="20dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="230dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,6 +23,7 @@
                 android:background="#BFffffff"
                 android:layout_marginTop="140dp"
                 android:maxLines="4"
+                android:id="@+id/HeadlineText"
                 />
 
         </LinearLayout>

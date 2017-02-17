@@ -1,4 +1,4 @@
-package com.example.nipunarora.dufeed;
+package Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

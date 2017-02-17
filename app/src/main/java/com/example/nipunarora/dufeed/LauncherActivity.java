@@ -1,6 +1,5 @@
 package com.example.nipunarora.dufeed;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -18,8 +17,8 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.Iterator;
-import java.util.List;
+import DataModels.NewsBanner;
+import DatabaseHandlers.NewsDatabaseHandler;
 
 
 public class LauncherActivity extends AppCompatActivity {
@@ -45,17 +44,16 @@ public class LauncherActivity extends AppCompatActivity {
             {
                 getDuNews();
             }
-        /*mHandler=new Handler();
-        mRunnable=new Runnable() {
-            @Override
-            public void run() {
-                Intent i=new Intent(getApplicationContext(),HomeActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                finish();
-            }
-        };
-        mHandler.postDelayed(mRunnable,3000);*/
+        else {
+            mHandler = new Handler();
+            mRunnable = new Runnable() {
+                @Override
+                public void run() {
+                  startMain();
+                }
+            };
+            mHandler.postDelayed(mRunnable, 3000);
+        }
     }
     private void getDuNews()
     {
@@ -78,7 +76,7 @@ public class LauncherActivity extends AppCompatActivity {
                             JSONArray key_array=res.names();
                             for (int i=0;i<Json_length;++i)
                             {
-                                JSONObject temp=key_array.getJSONObject(i);
+                                JSONObject temp=res.getJSONObject(key_array.getString(i));
                                 dbnewshandler.addBanner(new NewsBanner(temp.getString("title"),temp.getString("linkf"),temp.getString("imagelink")));
                             }
 
@@ -95,6 +93,9 @@ public class LauncherActivity extends AppCompatActivity {
                         editor.putBoolean("headline_dbload",true );
                         editor.commit();
                         /******************************************** Invert Complete ************************/
+
+                        /****************** START MAIN APP *********************/
+                        startMain();
 
                     }
                 },
@@ -114,5 +115,12 @@ public class LauncherActivity extends AppCompatActivity {
         /************************************* End of News request **************************************/
 
 
+    }
+    public void startMain()
+    {
+        Intent i=new Intent(this,HomeActivity.class);
+        /***************** GET ALL THE BANNERS FROM DB ****************/
+        i.putExtra("NewsBannerList",dbnewshandler.getBannerList());
+        startActivity(i);
     }
 }

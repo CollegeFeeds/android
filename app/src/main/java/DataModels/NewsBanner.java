@@ -1,4 +1,4 @@
-package com.example.nipunarora.dufeed;
+package DataModels;
 
 import android.support.v4.app.Fragment;
 

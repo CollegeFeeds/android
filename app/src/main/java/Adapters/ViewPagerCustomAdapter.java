@@ -1,8 +1,11 @@
-package com.example.nipunarora.dufeed;
+package Adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import Fragments.HomeTab;
+import Fragments.Starred;
 
 /**
  * Created by nipunarora on 27/01/17.

@@ -1,4 +1,4 @@
-package com.example.nipunarora.dufeed;
+package DatabaseHandlers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
+import DataModels.NewsBanner;
+
 public class NewsDatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
@@ -16,8 +18,8 @@ public class NewsDatabaseHandler extends SQLiteOpenHelper {
 
     /************************** DEFINING COLUMNS FOR DATABASE ********************/
     private static final String KEY_TITLE = "Title";
-    private static final String KEY_NEWSURL = "News url";
-    private static final String KEY_IMAGEURL="Image url";
+    private static final String KEY_NEWSURL = "Newsurl";
+    private static final String KEY_IMAGEURL="Imageurl";
     /*************************** END OF COLUMN DEFINATION **********************/
 
     //Constructor

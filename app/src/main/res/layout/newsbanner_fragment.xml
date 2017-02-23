@@ -20,7 +20,8 @@
                 android:src="@drawable/university"
                 android:id="@+id/bannerimage"
                 android:adjustViewBounds="true"
-                android:fitsSystemWindows="true"/>
+                android:fitsSystemWindows="true"
+                android:scaleType="fitXY"/>
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

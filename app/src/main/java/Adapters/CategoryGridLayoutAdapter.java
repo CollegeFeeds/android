@@ -28,7 +28,7 @@ public class CategoryGridLayoutAdapter extends BaseAdapter {
         ImageView imageView = new ImageView(mContext);
         imageView.setImageResource(icons[position]);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setLayoutParams(new GridView.LayoutParams(350,350));
+        imageView.setLayoutParams(new GridView.LayoutParams(250,250));
         return imageView;
 
     }

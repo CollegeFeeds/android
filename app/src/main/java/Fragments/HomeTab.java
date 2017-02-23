@@ -9,12 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
+import android.widget.GridView;
 
 import com.example.nipunarora.dufeed.R;
 
 import java.util.ArrayList;
 
 import Adapters.BannerSliderPagerAdapter;
+import Adapters.CategoryGridLayoutAdapter;
 import DataModels.NewsBanner;
 
 /**
@@ -26,6 +29,7 @@ public class HomeTab extends Fragment {
     View rootview;
     Handler handler;
     Runnable runnable;
+    GridView Catergories;
     public HomeTab()
     {
 
@@ -50,6 +54,8 @@ public class HomeTab extends Fragment {
         Log.d("BannerSlider",String.format("%d",bannerlist.size()));
         bannerpageradapter=new BannerSliderPagerAdapter(getChildFragmentManager(),bannerlist,getContext());
         bannerslider.setAdapter(bannerpageradapter);
+        Catergories=(GridView)rootview.findViewById(R.id.categoryGridview);
+        Catergories.setAdapter(new CategoryGridLayoutAdapter(getContext()));
         bannerslider.setOffscreenPageLimit(3);
         handler = new Handler();
         runnable = new Runnable() {

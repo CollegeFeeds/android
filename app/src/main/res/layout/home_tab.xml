@@ -4,7 +4,19 @@
     android:layout_height="match_parent">
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="230dp"
         android:id="@+id/BannerSlider"/>
+
+    <GridView
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:columnCount="2"
+        android:id="@+id/categoryGridview"
+        android:numColumns="2"
+        android:gravity="center"
+        android:columnWidth="100dp"
+        android:stretchMode="columnWidth"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
 
 </LinearLayout>

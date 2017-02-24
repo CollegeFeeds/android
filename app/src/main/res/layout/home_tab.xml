@@ -14,9 +14,10 @@
         android:id="@+id/categoryGridview"
         android:numColumns="2"
         android:gravity="center"
-        android:columnWidth="100dp"
+        android:columnWidth="60dp"
         android:stretchMode="columnWidth"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="fill_parent"
+        />
 
 </LinearLayout>

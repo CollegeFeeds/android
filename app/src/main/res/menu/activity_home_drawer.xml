@@ -9,8 +9,16 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Events" />
+            android:title="Results" />
         <item
+            android:id="@+id/nav_interns"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Internships" />
+        <item
+            android:id="@+id/nav_contactdu"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Contact DU" />
+       <!-- <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Undergraduate Results" />
@@ -30,11 +38,11 @@
             android:id="@+id/nav_manage2"
             android:icon="@drawable/ic_menu_manage"
             android:title="Diploma Results" />
-        android:title="NCWEB Results" />
+
         <item
             android:id="@+id/nav_manage3"
             android:icon="@drawable/ic_menu_manage"
-            android:title="PhD Results" />
+            android:title="PhD Results" />-->
     </group>
 
     <item android:title="Communicate">

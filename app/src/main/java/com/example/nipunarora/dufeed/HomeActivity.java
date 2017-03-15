@@ -2,19 +2,13 @@ package com.example.nipunarora.dufeed;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-
-import DataModels.NewsBanner;
 import Fragments.HomeFragment;
 
 public class HomeActivity extends AppCompatActivity
@@ -86,11 +80,11 @@ public class HomeActivity extends AppCompatActivity
         if (id == R.id.nav_camera1) {
             // Handle the camera action
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,hm).commit();
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_interns) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_interns) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_interns) {
 
         } else if (id == R.id.nav_share) {
 

@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
 import android.widget.GridView;
 
 import com.example.nipunarora.dufeed.R;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
 
 import Adapters.BannerSliderPagerAdapter;
 import Adapters.CategoryGridLayoutAdapter;
-import DataModels.NewsBanner;
 
 /**
  * Created by nipunarora on 27/01/17.

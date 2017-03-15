@@ -25,7 +25,7 @@
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DU Admissions 2017 : One Application Per Candidate &amp; Linking Of Aadhaar Card To Be Made Compulsory"
+                android:text="Headline"
                 android:textSize="20dp"
                 android:textColor="#000000"
                 android:textAlignment="center"

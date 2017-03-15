@@ -1,6 +1,9 @@
 package Adapters;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.AppCompatTextView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -16,6 +19,7 @@ public class CategoryGridLayoutAdapter extends BaseAdapter {
     Context mContext;
     Integer [] icons={
             R.drawable.datesheet,R.drawable.resultgrid,R.drawable.notificationgridview,R.drawable.miscellaneous};
+    String [] titles={"Datesheet","Results","Notifications","Miscelleneous"};
 
     public  CategoryGridLayoutAdapter(Context c)
     {
@@ -25,11 +29,15 @@ public class CategoryGridLayoutAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
        /************************* Inflate custom view and then assign images and set on clicklistener **********/
-        ImageView imageView = new ImageView(mContext);
-        imageView.setImageResource(icons[position]);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setLayoutParams(new GridView.LayoutParams(150,150));
-        return imageView;
+       if(convertView==null)
+       {
+           convertView= LayoutInflater.from(mContext).inflate(R.layout.utilities_gridviewcard, parent, false);
+       }
+        AppCompatImageView imageView = (AppCompatImageView)convertView.findViewById(R.id.utilityicon);
+        imageView.setBackgroundResource(icons[position]);
+        AppCompatTextView textview=(AppCompatTextView)convertView.findViewById(R.id.utilityname);
+        textview.setText(titles[position]);
+        return convertView;
 
     }
 

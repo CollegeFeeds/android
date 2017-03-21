@@ -103,6 +103,7 @@ public class LauncherActivity extends AppCompatActivity {
 
                     }
                 },
+                //******************** Enable the starting of app even in the case when internet is no available with default banner images **********/
                 new Response.ErrorListener()
                 {
                     @Override

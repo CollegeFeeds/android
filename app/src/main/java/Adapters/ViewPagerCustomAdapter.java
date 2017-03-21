@@ -39,7 +39,7 @@ public class ViewPagerCustomAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         super.getPageTitle(position);
 
-        switch (position){
+      /*  switch (position){
             case 0:
                 return "Home";
             case 1:
@@ -47,7 +47,8 @@ public class ViewPagerCustomAdapter extends FragmentStatePagerAdapter {
 
             default:
                 return null;
-        }
+        }*/
+      return null;
     }
 
 }

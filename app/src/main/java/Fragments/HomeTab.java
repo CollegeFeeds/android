@@ -52,8 +52,7 @@ public class HomeTab extends Fragment {
         Log.d("BannerSlider",String.format("%d",bannerlist.size()));
         bannerpageradapter=new BannerSliderPagerAdapter(getChildFragmentManager(),bannerlist,getContext());
         bannerslider.setAdapter(bannerpageradapter);
-        Catergories=(GridView)rootview.findViewById(R.id.categoryGridview);
-        Catergories.setAdapter(new CategoryGridLayoutAdapter(getContext()));
+
         bannerslider.setOffscreenPageLimit(3);
         handler = new Handler();
         runnable = new Runnable() {

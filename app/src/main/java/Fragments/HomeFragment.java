@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -20,6 +21,7 @@ public class HomeFragment extends Fragment {
     ViewPager pager;
     View rootView;
     ViewPagerCustomAdapter tabsadapter;
+    Integer[] Icons={R.drawable.home,R.drawable.star};
     public HomeFragment()
     {
 
@@ -42,8 +44,15 @@ public class HomeFragment extends Fragment {
         pager.setAdapter(tabsadapter);
         if(tblayout!=null) {
             tblayout.setupWithViewPager(pager);
+            setupTabIcons(tblayout);
         }
 
+
+    }
+    private void setupTabIcons(TabLayout tblayout)
+    {
+        tblayout.getTabAt(0).setIcon(Icons[0]);
+        tblayout.getTabAt(1).setIcon(Icons[1]);
 
     }
 }
